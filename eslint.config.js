@@ -19,4 +19,11 @@ export default defineConfig([globalIgnores(['dist']), {
   languageOptions: {
     globals: globals.browser,
   },
+}, {
+  // Storybook config/decorators aren't subject to app fast-refresh, so a file
+  // exporting both a decorator and helper components is fine here.
+  files: ['.storybook/**/*.{ts,tsx}'],
+  rules: {
+    'react-refresh/only-export-components': 'off',
+  },
 }, ...storybook.configs["flat/recommended"]])
