@@ -13,6 +13,6 @@ jobs:
       with:
         node-version: "22.18.0"
     - run: npm install
-    - run: npm add-use-client
+    - run: npm run add-use-client
     - run: npm run lint
     - run: npm run build
