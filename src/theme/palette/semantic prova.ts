@@ -86,7 +86,6 @@ interface SemanticColorsShape {
     cerulean: string;
     sand: string;
     neutral: string;
-    contrast: string;
     disabled: string;
     danger: string;
     warning: string;
@@ -206,7 +205,7 @@ export const lightSemantic: SemanticColors = {
     },
   },
   border: {
-    sand: Colors.sand[900],
+    sand: Colors.sand[600],
     cerulean: Colors.cerulean[600],
     neutral: Colors.gray[600],
     disabled: Colors.gray[300],
@@ -215,7 +214,6 @@ export const lightSemantic: SemanticColors = {
     sand: Colors.sand[600],
     cerulean: Colors.cerulean[600],
     neutral: Colors.gray[900],
-    contrast: Colors.gray[50],
     disabled: Colors.gray[300],
   },
   skeleton: {
@@ -329,7 +327,6 @@ export const darkSemantic: SemanticColors = {
     sand: Colors.sand[400],
     cerulean: Colors.cerulean[400],
     neutral: Colors.gray[50],
-    contrast: Colors.gray[900],
     disabled: Colors.gray[500],
   },
   skeleton: {

@@ -26,11 +26,12 @@ const MuiButton: Components<Theme>["MuiButton"] = {
     {
       props: { variant: "contained", color: "primary" },
       style: ({ theme }) => {
-        const t = (theme.vars ?? theme).palette.componentTokens.button.contained.primary;
+        const t = (theme.vars ?? theme).palette.componentTokens.button.contained
+          .primary;
         return {
           backgroundColor: t.standard.background,
           color: t.standard.color,
-          "&:hover": { backgroundColor: t.hover.background },
+          "&:hover": { backgroundColor: t.standard.background },
           "&.Mui-disabled": {
             backgroundColor: t.disabled.background,
             color: t.disabled.color,
@@ -41,7 +42,8 @@ const MuiButton: Components<Theme>["MuiButton"] = {
     {
       props: { variant: "contained", color: "secondary" },
       style: ({ theme }) => {
-        const t = (theme.vars ?? theme).palette.componentTokens.button.contained.secondary;
+        const t = (theme.vars ?? theme).palette.componentTokens.button.contained
+          .secondary;
         return {
           backgroundColor: t.standard.background,
           color: t.standard.color,
@@ -56,17 +58,18 @@ const MuiButton: Components<Theme>["MuiButton"] = {
     {
       props: { variant: "outlined", color: "primary" },
       style: ({ theme }) => {
-        const t = (theme.vars ?? theme).palette.componentTokens.button.outlined.primary;
+        const t = (theme.vars ?? theme).palette.componentTokens.button.outlined
+          .primary;
         return {
           color: t.standard.color,
-          borderColor: t.standard.border,
+          border: `1px solid ${t.standard.border}`,
           "&:hover": {
             backgroundColor: t.hover.background,
-            borderColor: t.hover.border,
+            border: `1px solid ${t.hover.border}`,
           },
           "&.Mui-disabled": {
             color: t.disabled.color,
-            borderColor: t.disabled.border,
+            border: `1px solid ${t.disabled.border}`,
           },
         };
       },
@@ -74,17 +77,18 @@ const MuiButton: Components<Theme>["MuiButton"] = {
     {
       props: { variant: "outlined", color: "secondary" },
       style: ({ theme }) => {
-        const t = (theme.vars ?? theme).palette.componentTokens.button.outlined.secondary;
+        const t = (theme.vars ?? theme).palette.componentTokens.button.outlined
+          .secondary;
         return {
           color: t.standard.color,
-          borderColor: t.standard.border,
+          border: `1px solid ${t.standard.border}`,
           "&:hover": {
             backgroundColor: t.hover.background,
-            borderColor: t.hover.border,
+            border: `1px solid ${t.hover.border}`,
           },
           "&.Mui-disabled": {
             color: t.disabled.color,
-            borderColor: t.disabled.border,
+            border: `1px solid ${t.disabled.border}`,
           },
         };
       },
@@ -92,7 +96,8 @@ const MuiButton: Components<Theme>["MuiButton"] = {
     {
       props: { variant: "text", color: "primary" },
       style: ({ theme }) => {
-        const t = (theme.vars ?? theme).palette.componentTokens.button.underlined.primary;
+        const t = (theme.vars ?? theme).palette.componentTokens.button
+          .underlined.primary;
         return {
           color: t.standard.color,
           "&:hover": {

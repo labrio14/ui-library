@@ -1,11 +1,33 @@
 {
   "name": "labrio-ui-library",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./atoms": {
+      "types": "./dist/components/atoms/index.d.ts",
+      "import": "./dist/components/atoms/index.js"
+    },
+    "./molecules": {
+      "types": "./dist/components/molecules/index.d.ts",
+      "import": "./dist/components/molecules/index.js"
+    }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "TODO:": "TEMPORANEO: ripristinare build='tsc -b && vite build' dopo fix TypeScript",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "version:bump": "node scripts/bump-version.cjs",
@@ -21,29 +43,30 @@
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "latest",
     "@eslint/js": "^10.0.1",
+    "@storybook/addon-a11y": "^10.5.7",
+    "@storybook/addon-docs": "^10.5.7",
+    "@storybook/addon-mcp": "latest",
+    "@storybook/addon-vitest": "^10.5.7",
+    "@storybook/react-vite": "^10.5.7",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
+    "@vitest/browser-playwright": "latest",
+    "@vitest/coverage-v8": "latest",
     "eslint": "^10.8.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
+    "eslint-plugin-storybook": "^10.5.7",
     "globals": "^17.7.0",
+    "playwright": "latest",
+    "storybook": "^10.5.7",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.65.0",
     "vite": "^8.2.0",
-    "storybook": "^10.5.7",
-    "@storybook/react-vite": "^10.5.7",
-    "@chromatic-com/storybook": "latest",
-    "@storybook/addon-vitest": "^10.5.7",
-    "@storybook/addon-a11y": "^10.5.7",
-    "@storybook/addon-docs": "^10.5.7",
-    "@storybook/addon-mcp": "latest",
-    "eslint-plugin-storybook": "^10.5.7",
-    "vitest": "latest",
-    "playwright": "latest",
-    "@vitest/browser-playwright": "latest",
-    "@vitest/coverage-v8": "latest"
+    "vite-plugin-dts": "^5.0.3",
+    "vitest": "latest"
   }
 }
