@@ -7,9 +7,7 @@ import MuiSwitch, {
 import { styled } from "@mui/material";
 import type { StyledComponent } from "@emotion/styled";
 
-export interface SwitchProps extends MuiSwitchProps {}
-
-const Switch: StyledComponent<SwitchProps> = styled(MuiSwitch)();
+const Switch: StyledComponent<MuiSwitchProps> = styled(MuiSwitch)();
 Switch.displayName = "Switch";
 
 export default Switch;
