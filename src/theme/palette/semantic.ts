@@ -71,6 +71,8 @@ interface SemanticColorsShape {
       subtle: string;
       bold: string;
     };
+    staticLight: string;
+    staticDark: string;
   };
   border: {
     sand: string;
@@ -92,6 +94,8 @@ interface SemanticColorsShape {
     warning: string;
     success: string;
     info: string;
+    staticLight: string;
+    staticDark: string;
   };
   link: {
     neutral: string;
@@ -113,6 +117,7 @@ export type SemanticColors = DeepPartial<SemanticColorsShape>;
 /** Light mode: dark ink on light surfaces. */
 export const lightSemantic: SemanticColors = {
   background: {
+    staticLight: Colors.gray[50],
     accent: {
       sand: {
         subtlest: {
@@ -227,6 +232,7 @@ export const lightSemantic: SemanticColors = {
 /** Dark mode: light ink on dark surfaces (accent lightened for contrast). */
 export const darkSemantic: SemanticColors = {
   background: {
+    staticLight: Colors.gray[50],
     accent: {
       sand: {
         subtlest: {

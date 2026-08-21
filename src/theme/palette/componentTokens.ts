@@ -46,6 +46,10 @@ export interface ButtonTokens {
     primary: ButtonStateColors;
     secondary: ButtonStateColors;
   };
+  text: {
+    primary: ButtonStateColors;
+    secondary: ButtonStateColors;
+  };
 }
 
 /** Text input (outlined) — border color per state, plus label. */
@@ -87,12 +91,18 @@ export interface ToggleButtonTokens {
 
 /** Switch — thumb plus the two track states. */
 export interface SwitchTokens {
-  /** Track color when off. */
-  track: string;
-  /** Track color when on. */
-  trackChecked: string;
-  /** The sliding knob (stays high-contrast in both schemes). */
-  thumb: string;
+  rested: {
+    track: string;
+    thumb: string;
+  };
+  checked: {
+    track: string;
+    thumb: string;
+  };
+  disabled: {
+    track: string;
+    thumb: string;
+  };
 }
 
 /** One color's chip styling: body + icons, per interaction state. */
@@ -208,6 +218,22 @@ const buildComponentTokens = (s: SemanticColors): ComponentTokens => ({
         disabled: { background: "transparent", color: s.text?.disabled },
       },
     },
+    text: {
+      primary: {
+        standard: { background: "transparent", color: s.text?.neutral },
+        hover: {
+          color: s.text?.cerulean,
+        },
+        disabled: { background: "transparent", color: s.text?.disabled },
+      },
+      secondary: {
+        standard: { background: "transparent", color: s.text?.neutral },
+        hover: {
+          color: s.text?.sand,
+        },
+        disabled: { background: "transparent", color: s.text?.disabled },
+      },
+    },
   },
   /* input: {
     standard: { background: s.background.paper, border: s.border },
@@ -306,6 +332,20 @@ const buildComponentTokens = (s: SemanticColors): ComponentTokens => ({
           hover: { color: s.text?.sand },
         },
       },
+    },
+  },
+  switch: {
+    rested: {
+      thumb: s.background?.staticLight,
+      track: s.background?.accent?.sand?.subtle?.rested,
+    },
+    disabled: {
+      thumb: s.background?.disabled?.subtle,
+      track: s.background?.disabled?.bold,
+    },
+    checked: {
+      thumb: s.background?.staticLight,
+      track: s.background?.accent?.cerulean?.subtle?.rested,
     },
   },
 });

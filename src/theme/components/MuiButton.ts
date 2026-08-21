@@ -96,12 +96,11 @@ const MuiButton: Components<Theme>["MuiButton"] = {
     {
       props: { variant: "text", color: "primary" },
       style: ({ theme }) => {
-        const t = (theme.vars ?? theme).palette.componentTokens.button
-          .underlined.primary;
+        const t = (theme.vars ?? theme).palette.componentTokens.button.text
+          .primary;
         return {
           color: t.standard.color,
           "&:hover": {
-            backgroundColor: t.hover.background,
             color: t.hover.color,
           },
           "&.Mui-disabled": { color: t.disabled.color },
@@ -111,12 +110,11 @@ const MuiButton: Components<Theme>["MuiButton"] = {
     {
       props: { variant: "text", color: "secondary" },
       style: ({ theme }) => {
-        const t = (theme.vars ?? theme).palette.componentTokens.button
-          .underlined.secondary;
+        const t = (theme.vars ?? theme).palette.componentTokens.button.text
+          .secondary;
         return {
           color: t.standard.color,
           "&:hover": {
-            backgroundColor: t.hover.background,
             color: t.hover.color,
           },
           "&.Mui-disabled": { color: t.disabled.color },

@@ -1,45 +1,61 @@
 import type { Components, Theme } from "@mui/material/styles";
 
-/**
- * Component-level style overrides for MUI Switch.
- *
- * Track and thumb colors read from
- * `(theme.vars ?? theme).palette.componentTokens.switch`. The thumb maps to the
- * primary `contrastText` role, which is near-white in both schemes, so the knob
- * stays high-contrast on the colored (checked) and neutral (off) tracks alike.
- */
 const MuiSwitch: Components<Theme>["MuiSwitch"] = {
+  defaultProps: {
+    disableRipple: true,
+  },
   styleOverrides: {
-    root: {
-      width: 44,
-      height: 24,
-      padding: 0,
-    },
-    switchBase: ({ theme }) => {
+    root: ({ theme }) => {
       const t = (theme.vars ?? theme).palette.componentTokens.switch;
+
       return {
-        padding: 3,
-        "&.Mui-checked": {
-          transform: "translateX(20px)",
-          color: t.thumb,
-          "& + .MuiSwitch-track": {
-            backgroundColor: t.trackChecked,
-            opacity: 1,
+        "& + .MuiFormControlLabel-label": {
+          margin: ".5rem",
+        },
+        width: "2.25rem",
+        height: "1.25rem",
+        padding: 0,
+        "& .MuiSwitch-switchBase": {
+          padding: "1px !important",
+          margin: ".125rem !important",
+          transitionDuration: "300ms",
+          "&.Mui-checked": {
+            transform: "translateX(1rem)",
+            "& + .MuiSwitch-track": {
+              backgroundColor: t.checked.track,
+              opacity: 1,
+              border: 0,
+            },
+            "&.Mui-disabled + .MuiSwitch-track": {
+              opacity: 1,
+              background: t.disabled.track,
+            },
           },
+          "&.Mui-focusVisible .MuiSwitch-thumb": {
+            color: t.rested.thumb,
+          },
+          "&.Mui-disabled .MuiSwitch-thumb": {
+            color: t.disabled.thumb,
+          },
+          "&.Mui-disabled + .MuiSwitch-track": {
+            opacity: 1,
+            backgroundColor: t.disabled.track,
+          },
+        },
+        "& .MuiSwitch-thumb": {
+          boxSizing: "border-box",
+          width: ".875rem",
+          height: ".875rem",
+          color: t.rested.thumb,
+        },
+        "& .MuiSwitch-track": {
+          borderRadius: ".8125rem",
+          backgroundColor: t.rested.track,
+          opacity: 1,
+          transition: "background-color 500ms",
         },
       };
     },
-    thumb: ({ theme }) => ({
-      width: 18,
-      height: 18,
-      boxShadow: "none",
-      backgroundColor: (theme.vars ?? theme).palette.componentTokens.switch.thumb,
-    }),
-    track: ({ theme }) => ({
-      borderRadius: 12,
-      opacity: 1,
-      backgroundColor: (theme.vars ?? theme).palette.componentTokens.switch.track,
-    }),
   },
 };
 
